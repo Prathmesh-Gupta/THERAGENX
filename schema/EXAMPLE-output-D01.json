@@ -1,0 +1,212 @@
+{
+  "document_id": "D01",
+  "catalog_version": "1.0",
+  "model": "provider/model-name (example)",
+  "flags": [],
+  "cases": [
+    {
+      "case_index": 0,
+      "label": "Mrs M.K.",
+      "fields": {
+        "patient_initials": {
+          "status": "extracted",
+          "value": "MK",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "Mrs M.K.",
+              "start": 276,
+              "end": 284
+            }
+          ]
+        },
+        "patient_age_years": {
+          "status": "extracted",
+          "value": 54,
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "54-year-old",
+              "start": 288,
+              "end": 299
+            }
+          ]
+        },
+        "patient_sex": {
+          "status": "extracted",
+          "value": "female",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "54-year-old woman",
+              "start": 288,
+              "end": 305
+            }
+          ]
+        },
+        "suspect_drug_name": {
+          "status": "extracted",
+          "value": "amoxicillin",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "amoxicillin 500 mg capsules",
+              "start": 373,
+              "end": 400
+            }
+          ]
+        },
+        "suspect_drug_route": {
+          "status": "extracted",
+          "value": "oral",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "one capsule orally three times daily",
+              "start": 402,
+              "end": 438
+            }
+          ]
+        },
+        "suspect_drug_start_date": {
+          "status": "extracted",
+          "value": "2026-03-02",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "She took the first dose on 2 March 2026",
+              "start": 481,
+              "end": 520
+            }
+          ]
+        },
+        "event_terms": {
+          "status": "extracted",
+          "value": [
+            "rash",
+            "angioedema"
+          ],
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "widespread pruritic maculopapular rash",
+              "start": 555,
+              "end": 593
+            }
+          ]
+        },
+        "event_onset_date": {
+          "status": "extracted",
+          "value": "2026-03-04",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "On 4 March 2026 she developed",
+              "start": 523,
+              "end": 552
+            }
+          ]
+        },
+        "event_outcome": {
+          "status": "extracted",
+          "value": "recovered",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "resolved completely by 7 March 2026",
+              "start": 901,
+              "end": 936
+            }
+          ]
+        },
+        "seriousness_criteria": {
+          "status": "extracted",
+          "value": [
+            "hospitalization"
+          ],
+          "confidence": "medium",
+          "provenance": [
+            {
+              "quote": "was admitted for observation",
+              "start": 728,
+              "end": 756
+            }
+          ],
+          "note": "Admitted for observation; counted as hospitalization."
+        },
+        "reporter_type": {
+          "status": "extracted",
+          "value": "physician",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "Consultant Dermatologist",
+              "start": 1134,
+              "end": 1158
+            }
+          ]
+        },
+        "report_date": {
+          "status": "extracted",
+          "value": "2026-03-10",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "Date: 10 March 2026",
+              "start": 68,
+              "end": 87
+            }
+          ]
+        },
+        "country": {
+          "status": "extracted",
+          "value": "GB",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "Leeds, United Kingdom",
+              "start": 45,
+              "end": 66
+            }
+          ]
+        },
+        "concomitant_drugs": {
+          "status": "extracted",
+          "value": [],
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "She was not taking any other medication",
+              "start": 966,
+              "end": 1005
+            }
+          ]
+        },
+        "suspect_drug_dose_value": {
+          "status": "extracted",
+          "value": 500,
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "amoxicillin 500 mg",
+              "start": 373,
+              "end": 391
+            }
+          ]
+        },
+        "suspect_drug_dose_unit": {
+          "status": "extracted",
+          "value": "mg",
+          "confidence": "high",
+          "provenance": [
+            {
+              "quote": "amoxicillin 500 mg",
+              "start": 373,
+              "end": 391
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

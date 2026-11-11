@@ -1,0 +1,176 @@
+{
+  "catalog_version": "1.0",
+  "description": "Field catalog for the case intake exercise. Every field below must appear in every case your pipeline emits, with a status of extracted, unknown or conflict. The catalog is the single source of truth for field ids, types, allowed values and validation. Nothing in your code should name a field id that is not read from this file.",
+  "statuses": {
+    "extracted": "A value was found in the document. value, confidence and provenance are required.",
+    "unknown": "The document does not state it, or you could not determine it. No value. Never a guess.",
+    "conflict": "The document states two or more incompatible values. No value. Put the candidates in note."
+  },
+  "confidence_levels": ["high", "medium", "low"],
+  "sections": [
+    {"id": "patient", "label": "Patient"},
+    {"id": "drug", "label": "Suspect drug"},
+    {"id": "event", "label": "Adverse event"},
+    {"id": "report", "label": "Report"}
+  ],
+  "fields": [
+    {
+      "id": "patient_initials",
+      "label": "Patient initials",
+      "section": "patient",
+      "type": "string",
+      "validation": {"pattern": "^[A-Z]{1,4}$"},
+      "guidance": "Upper-case letters only, no dots or spaces. Use the initials as stated in the document, or derived from a full name when the document gives one. A first name alone does not give initials."
+    },
+    {
+      "id": "patient_age_years",
+      "label": "Age (years)",
+      "section": "patient",
+      "type": "integer",
+      "validation": {"min": 0, "max": 120},
+      "guidance": "Age in completed years at the time of the reaction. A newborn is 0. If the document gives only a year of birth, compute from the reaction date."
+    },
+    {
+      "id": "patient_sex",
+      "label": "Sex",
+      "section": "patient",
+      "type": "coded",
+      "options": [
+        {"code": "male", "label": "Male"},
+        {"code": "female", "label": "Female"}
+      ]
+    },
+    {
+      "id": "suspect_drug_name",
+      "label": "Suspect drug",
+      "section": "drug",
+      "type": "string",
+      "guidance": "The generic (INN) name of the one drug the reporter holds responsible for the reaction, in lower case. A drug the patient also takes but which is not blamed is a concomitant drug, not a suspect drug. A drug given to treat the reaction is neither."
+    },
+    {
+      "id": "suspect_drug_dose_value",
+      "label": "Dose",
+      "section": "drug",
+      "type": "number",
+      "validation": {"min": 0},
+      "guidance": "The single-administration dose of the suspect drug that the patient was taking when the reaction started. If the dose changed during treatment, report the dose at the time of the reaction."
+    },
+    {
+      "id": "suspect_drug_dose_unit",
+      "label": "Dose unit",
+      "section": "drug",
+      "type": "coded",
+      "options": [
+        {"code": "mg", "label": "mg"},
+        {"code": "mcg", "label": "mcg"},
+        {"code": "g", "label": "g"},
+        {"code": "mL", "label": "mL"},
+        {"code": "IU", "label": "IU"},
+        {"code": "other", "label": "Other"}
+      ]
+    },
+    {
+      "id": "suspect_drug_route",
+      "label": "Route",
+      "section": "drug",
+      "type": "coded",
+      "options": [
+        {"code": "oral", "label": "Oral"},
+        {"code": "intravenous", "label": "Intravenous"},
+        {"code": "intramuscular", "label": "Intramuscular"},
+        {"code": "subcutaneous", "label": "Subcutaneous"},
+        {"code": "topical", "label": "Topical"},
+        {"code": "inhalation", "label": "Inhalation"},
+        {"code": "other", "label": "Other"}
+      ],
+      "guidance": "'By mouth', 'per os', 'tablets' and 'capsules' all mean oral."
+    },
+    {
+      "id": "suspect_drug_start_date",
+      "label": "Drug start date",
+      "section": "drug",
+      "type": "date",
+      "guidance": "ISO 8601 date (YYYY-MM-DD) on which the patient first took the suspect drug. A dispensing or prescription date is not a start date unless the document says the patient started that day."
+    },
+    {
+      "id": "event_terms",
+      "label": "Reactions",
+      "section": "event",
+      "type": "string_list",
+      "guidance": "One short clinical term per reaction the reporter attributes to the suspect drug, in lower case, for example 'rash' or 'agranulocytosis'. Do not list symptoms the document says the patient did not have. Do not list the indication for the drug."
+    },
+    {
+      "id": "event_onset_date",
+      "label": "Reaction onset date",
+      "section": "event",
+      "type": "date",
+      "guidance": "ISO 8601 date on which the first reaction started. If the document gives only a relative time ('three days earlier'), you may compute the date, but confidence must not be high."
+    },
+    {
+      "id": "event_outcome",
+      "label": "Outcome",
+      "section": "event",
+      "type": "coded",
+      "options": [
+        {"code": "recovered", "label": "Recovered"},
+        {"code": "recovering", "label": "Recovering"},
+        {"code": "not_recovered", "label": "Not recovered"},
+        {"code": "recovered_with_sequelae", "label": "Recovered with sequelae"},
+        {"code": "fatal", "label": "Fatal"}
+      ],
+      "guidance": "Outcome of the reaction at the time of the report."
+    },
+    {
+      "id": "seriousness_criteria",
+      "label": "Seriousness",
+      "section": "event",
+      "type": "coded_multi",
+      "options": [
+        {"code": "death", "label": "Death"},
+        {"code": "life_threatening", "label": "Life-threatening"},
+        {"code": "hospitalization", "label": "Hospitalization or prolonged hospitalization"},
+        {"code": "disability", "label": "Persistent or significant disability"},
+        {"code": "congenital_anomaly", "label": "Congenital anomaly"},
+        {"code": "other_medically_important", "label": "Other medically important"},
+        {"code": "none", "label": "Not serious"}
+      ],
+      "guidance": "All criteria that apply. 'none' stands alone and means no criterion applies. A reaction that caused or prolonged an inpatient stay meets 'hospitalization'; an emergency department visit without admission does not."
+    },
+    {
+      "id": "reporter_type",
+      "label": "Reporter",
+      "section": "report",
+      "type": "coded",
+      "options": [
+        {"code": "physician", "label": "Physician"},
+        {"code": "pharmacist", "label": "Pharmacist"},
+        {"code": "nurse", "label": "Nurse"},
+        {"code": "other_hcp", "label": "Other health professional"},
+        {"code": "consumer", "label": "Consumer or patient"}
+      ],
+      "guidance": "The qualification of the person who wrote the report. Dentists, midwives and physiotherapists are other_hcp. A patient or relative is consumer."
+    },
+    {
+      "id": "report_date",
+      "label": "Report date",
+      "section": "report",
+      "type": "date",
+      "guidance": "ISO 8601 date on which the reporter wrote or sent the report."
+    },
+    {
+      "id": "country",
+      "label": "Country of occurrence",
+      "section": "report",
+      "type": "string",
+      "validation": {"pattern": "^[A-Z]{2}$"},
+      "guidance": "ISO 3166-1 alpha-2 code of the country where the reaction occurred."
+    },
+    {
+      "id": "concomitant_drugs",
+      "label": "Concomitant drugs",
+      "section": "drug",
+      "type": "string_list",
+      "guidance": "Generic names, in lower case, of the other medicines the patient was taking when the reaction started. An empty list is a valid extracted value when the document states that there were none. Medicines given to treat the reaction are not concomitant drugs."
+    }
+  ]
+}

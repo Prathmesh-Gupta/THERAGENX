@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Extraction output for one source document",
+  "description": "One file per source document, named <document_id>.json. Field ids come from the field catalog; every catalog field appears in every case.",
+  "type": "object",
+  "required": [
+    "document_id",
+    "catalog_version",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "type": "string",
+      "description": "File name of the source document without extension, e.g. D01"
+    },
+    "catalog_version": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string",
+      "description": "Provider and model that produced this output, written as provider/model"
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Document-level observations. Recommended values: no_adverse_event, multiple_patients, unsupported_format, possible_duplicate. Free text is allowed for anything else you want a reviewer to know about the document."
+    },
+    "cases": {
+      "type": "array",
+      "description": "One entry per patient who experienced a reaction described in the document. Empty when the document reports no adverse event.",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_index",
+          "fields"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "case_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "label": {
+            "type": "string",
+            "description": "Short human label for the UI, e.g. 'Mother' or 'Infant'"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Keyed by catalog field id.",
+            "additionalProperties": {
+              "$ref": "#/definitions/fieldResult"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "fieldResult": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "extracted",
+            "unknown",
+            "conflict"
+          ]
+        },
+        "value": {
+          "description": "Required when status is extracted. Type follows the catalog: string, integer, number, ISO date string, option code, array of option codes, or array of strings."
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "description": "Required when status is extracted. Absent confidence is scored as high."
+        },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/provenance"
+          },
+          "description": "Required when status is extracted. Where in the document the value comes from."
+        },
+        "note": {
+          "type": "string",
+          "description": "Free text. For conflict, list the candidate values seen."
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "quote",
+        "start",
+        "end"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "quote": {
+          "type": "string",
+          "description": "The exact text from the document that supports the value. Copied, not paraphrased."
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Character offset of the quote in the .txt file, 0-based, inclusive. Offsets count Unicode code points in the UTF-8 decoded file."
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Character offset, exclusive. text[start:end] must be the quote; the checker ignores case and runs of whitespace."
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Optional. Page number when the document has page markers."
+        }
+      }
+    }
+  }
+}

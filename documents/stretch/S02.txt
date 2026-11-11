@@ -1,0 +1,25 @@
+Universitaetsklinikum Freiburg
+Klinik fuer Kardiologie und Angiologie
+Freiburg im Breisgau, Germany
+
+24 February 2026
+
+Drug Safety Unit
+CardioMed Pharma GmbH
+
+Re: Report of a suspected adverse drug reaction
+
+Dear Colleagues,
+
+I would like to report a case of digoxin toxicity in an 81-year-old female patient (initials E.W.) who was admitted to our emergency department on 16 February 2026 with symptomatic bradycardia.
+
+The patient had been treated with digoxin 0.25 mg orally once daily since 5 January 2026 for permanent atrial fibrillation, in addition to bisoprolol and apixaban. From approximately 13 February 2026 she had experienced nausea, dizziness and general weakness. On arrival her heart rate was 38 beats per minute with a second-degree atrioventricular block on the electrocardiogram. The serum digoxin concentration was 3.4 ng/mL (therapeutic range 0.8 to 2.0 ng/mL). Renal function was moderately impaired (eGFR 38 mL/min/1.73 m2).
+
+Digoxin was discontinued. She was monitored on the cardiac ward for 48 hours. The heart rate normalised and the atrioventricular block resolved. She was discharged on 19 February 2026 in good condition, fully recovered.
+
+We consider the reaction to be related to digoxin, most likely due to accumulation in the context of reduced renal clearance.
+
+With kind regards,
+
+Prof. Dr. med. Tobias Reinholt
+Senior Consultant Cardiologist

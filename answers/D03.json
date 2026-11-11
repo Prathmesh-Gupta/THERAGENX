@@ -1,0 +1,172 @@
+{
+  "document_id": "D03",
+  "cases": [
+    {
+      "label": "Patient (initials withheld)",
+      "fields": {
+        "patient_initials": {
+          "expected": "unknown"
+        },
+        "patient_age_years": {
+          "accept": [
+            45
+          ]
+        },
+        "patient_sex": {
+          "accept": [
+            "male"
+          ]
+        },
+        "suspect_drug_name": {
+          "accept": [
+            "ibuprofen"
+          ]
+        },
+        "suspect_drug_route": {
+          "accept": [
+            "oral"
+          ]
+        },
+        "suspect_drug_start_date": {
+          "accept": [
+            "2026-04-03"
+          ]
+        },
+        "event_terms": {
+          "required": [
+            [
+              "gastrointestinal haemorrhage",
+              "gastrointestinal hemorrhage",
+              "upper gastrointestinal haemorrhage",
+              "upper gastrointestinal hemorrhage",
+              "upper gastrointestinal bleed",
+              "upper gastrointestinal bleeding",
+              "gastrointestinal bleeding",
+              "gastrointestinal bleed",
+              "gi bleed",
+              "gi bleeding",
+              "upper gi bleed",
+              "upper gi bleeding",
+              "bleeding duodenal ulcer",
+              "duodenal ulcer haemorrhage",
+              "duodenal ulcer hemorrhage",
+              "duodenal ulcer bleed",
+              "duodenal ulcer bleeding",
+              "upper gi haemorrhage",
+              "gi haemorrhage",
+              "duodenal haemorrhage",
+              "haemorrhagic duodenal ulcer",
+              "duodenal ulcer with haemorrhage",
+              "peptic ulcer haemorrhage",
+              "bleeding peptic ulcer",
+              "peptic ulcer bleeding"
+            ]
+          ],
+          "optional": [
+            [
+              "melaena",
+              "melena",
+              "black tarry stools",
+              "black stools",
+              "black tarry stool",
+              "tarry stools",
+              "tarry stool",
+              "black stool"
+            ],
+            [
+              "duodenal ulcer",
+              "peptic ulcer"
+            ],
+            [
+              "faintness",
+              "feeling faint",
+              "felt faint",
+              "presyncope",
+              "syncope",
+              "dizziness",
+              "faint",
+              "light-headedness"
+            ],
+            [
+              "anaemia",
+              "anemia",
+              "low haemoglobin",
+              "haemoglobin decreased",
+              "haemorrhagic anaemia",
+              "acute blood loss anaemia",
+              "blood loss anaemia",
+              "anaemia due to blood loss"
+            ]
+          ],
+          "forbidden": [
+            [
+              "low back pain",
+              "back pain",
+              "mechanical low back pain"
+            ]
+          ]
+        },
+        "event_onset_date": {
+          "accept": [
+            "2026-04-28"
+          ]
+        },
+        "event_outcome": {
+          "accept": [
+            "recovered"
+          ]
+        },
+        "seriousness_criteria": {
+          "accept_sets": [
+            [
+              "hospitalization"
+            ]
+          ]
+        },
+        "reporter_type": {
+          "accept": [
+            "nurse"
+          ]
+        },
+        "report_date": {
+          "accept": [
+            "2026-05-15"
+          ]
+        },
+        "country": {
+          "accept": [
+            "GB"
+          ]
+        },
+        "concomitant_drugs": {
+          "required": [],
+          "optional": [],
+          "forbidden": [
+            [
+              "omeprazole"
+            ],
+            [
+              "aspirin"
+            ]
+          ]
+        }
+      },
+      "groups": [
+        {
+          "name": "dose",
+          "fields": [
+            "suspect_drug_dose_value",
+            "suspect_drug_dose_unit"
+          ],
+          "accept": [
+            [
+              400,
+              "mg"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "catalog_version": "1.0"
+}

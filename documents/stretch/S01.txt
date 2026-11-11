@@ -1,0 +1,24 @@
+From: Apotheke am Lindenplatz <info@apotheke-lindenplatz.example>
+To: drugsafety@cardiomed-pharma.example
+Subject: Nebenwirkungsmeldung / Adverse reaction report - Digoxin
+Date: Fri, 20 Feb 2026 16:42:10 +0100
+
+Dear Sir or Madam,
+
+I am a community pharmacist in Freiburg, Germany, and I wish to report a suspected adverse reaction to one of your products.
+
+The patient is Mrs E.W., born 1944 (81 years old), who has been taking digoxin for atrial fibrillation. According to her medication record the prescribed dose is digoxin 0.25 mg once daily by mouth, started on 5 January 2026. She also takes bisoprolol 2.5 mg once daily and apixaban 5 mg twice daily.
+
+Dispensing record (copied from our system):
+  12.01.2026   DIGOXIN 250 MCG TABL      N2 (50 St)    1-0-0
+  12.01.2026   BISOPROLOL 2,5 MG TABL    N3 (100 St)   1-0-0
+  12.01.2026   APIXABAN 5 MG FILMTABL    N3 (100 St)   1-0-1
+
+On 16 February 2026 the patient's daughter came to the pharmacy and told us her mother had been feeling very nauseous and dizzy for three days and that her pulse was "very slow". We measured a heart rate of 41 beats per minute and advised her to go to the emergency department immediately. The daughter told us today that digoxin was stopped in hospital, that the heart rate has returned to normal and that her mother is back home and feeling well.
+
+I believe the reaction is related to digoxin.
+
+Mit freundlichen Gruessen
+Dr. rer. nat. Karin Obermaier
+Apothekerin
+Apotheke am Lindenplatz, Freiburg

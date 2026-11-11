@@ -1,0 +1,204 @@
+{
+  "document_id": "D02",
+  "cases": [
+    {
+      "label": "Mr J.T.O.",
+      "fields": {
+        "patient_initials": {
+          "accept": [
+            "JTO"
+          ]
+        },
+        "patient_age_years": {
+          "accept": [
+            67
+          ]
+        },
+        "patient_sex": {
+          "accept": [
+            "male"
+          ]
+        },
+        "suspect_drug_name": {
+          "accept": [
+            "atorvastatin"
+          ]
+        },
+        "suspect_drug_route": {
+          "accept": [
+            "oral"
+          ]
+        },
+        "suspect_drug_start_date": {
+          "accept": [
+            "2025-11-20"
+          ]
+        },
+        "event_terms": {
+          "required": [
+            [
+              "drug-induced liver injury",
+              "drug induced liver injury",
+              "liver injury",
+              "hepatotoxicity",
+              "acute drug-induced liver injury",
+              "hepatocellular injury",
+              "hepatocellular liver injury",
+              "hepatitis",
+              "dili",
+              "acute liver injury",
+              "hepatocellular drug-induced liver injury",
+              "acute hepatitis",
+              "drug-induced hepatitis",
+              "toxic hepatitis",
+              "drug-induced hepatotoxicity",
+              "liver toxicity",
+              "hepatic injury",
+              "liver damage",
+              "drug-induced liver damage",
+              "hepatocellular damage",
+              "statin-induced liver injury"
+            ]
+          ],
+          "optional": [
+            [
+              "jaundice",
+              "yellowing of the eyes",
+              "ocular icterus",
+              "scleral icterus",
+              "icterus",
+              "yellow eyes",
+              "yellowing of eyes",
+              "yellow sclera",
+              "scleral yellowing",
+              "jaundice hepatocellular"
+            ],
+            [
+              "fatigue",
+              "tiredness"
+            ],
+            [
+              "dark urine",
+              "chromaturia",
+              "dark coloured urine",
+              "dark colored urine"
+            ],
+            [
+              "elevated liver enzymes",
+              "raised liver enzymes",
+              "increased transaminases",
+              "transaminases increased",
+              "alt increased",
+              "elevated transaminases",
+              "liver enzymes increased",
+              "hyperbilirubinaemia",
+              "hyperbilirubinemia",
+              "liver function test abnormal",
+              "hepatic enzyme increased",
+              "hepatic enzymes increased",
+              "raised transaminases",
+              "transaminitis",
+              "alanine aminotransferase increased",
+              "aspartate aminotransferase increased",
+              "ast increased",
+              "elevated alt",
+              "blood bilirubin increased",
+              "bilirubin increased",
+              "elevated bilirubin",
+              "raised bilirubin",
+              "liver function test increased",
+              "liver function tests abnormal",
+              "hepatic function abnormal",
+              "blood alkaline phosphatase increased",
+              "alkaline phosphatase increased",
+              "international normalised ratio increased",
+              "inr increased"
+            ]
+          ],
+          "forbidden": [
+            [
+              "rash"
+            ],
+            [
+              "pruritus",
+              "itching",
+              "itch"
+            ],
+            [
+              "fever",
+              "pyrexia"
+            ],
+            [
+              "joint pain",
+              "arthralgia"
+            ]
+          ]
+        },
+        "event_onset_date": {
+          "accept": [
+            "2026-01-04"
+          ]
+        },
+        "event_outcome": {
+          "accept": [
+            "recovering"
+          ]
+        },
+        "seriousness_criteria": {
+          "accept_sets": [
+            [
+              "hospitalization"
+            ]
+          ]
+        },
+        "reporter_type": {
+          "accept": [
+            "physician"
+          ]
+        },
+        "report_date": {
+          "accept": [
+            "2026-02-02"
+          ]
+        },
+        "country": {
+          "accept": [
+            "IE"
+          ]
+        },
+        "concomitant_drugs": {
+          "required": [
+            [
+              "metformin"
+            ],
+            [
+              "amlodipine"
+            ]
+          ],
+          "optional": [],
+          "forbidden": [
+            [
+              "atorvastatin"
+            ]
+          ]
+        }
+      },
+      "groups": [
+        {
+          "name": "dose",
+          "fields": [
+            "suspect_drug_dose_value",
+            "suspect_drug_dose_unit"
+          ],
+          "accept": [
+            [
+              40,
+              "mg"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "catalog_version": "1.0"
+}

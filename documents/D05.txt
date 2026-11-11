@@ -1,0 +1,45 @@
+Northbank Mental Health Service
+Clozapine Clinic
+Brisbane, Queensland, Australia
+
+ADVERSE DRUG REACTION REPORT                                    Page 1 of 3
+
+Report date: 11 April 2026
+Reporting clinician: Dr Owen Faulkner, Consultant Psychiatrist
+
+PATIENT DETAILS
+Initials: D.L.
+Age: 54
+Sex: Male
+Diagnosis: Treatment-resistant schizophrenia
+
+SUSPECT MEDICINE
+Clozapine 100 mg tablets. Current dose 300 mg orally once daily at night (titrated from 12.5 mg).
+Date started: 9 February 2026
+Indication: Treatment-resistant schizophrenia
+
+OTHER MEDICINES
+Sodium valproate 500 mg orally twice daily (since 2021).
+Lorazepam 1 mg orally at night as required.
+
+                                                                Page 2 of 3
+
+CLINICAL NARRATIVE
+This 45-year-old gentleman was commenced on clozapine in February 2026 after failing adequate trials of two other antipsychotics. Mandatory haematological monitoring was carried out weekly. White cell count and absolute neutrophil count were within the normal range at each visit until week 8.
+
+At the week 9 visit on 6 April 2026 the absolute neutrophil count was 0.3 x 10^9/L (white cell count 1.8 x 10^9/L). The patient reported a sore throat and fever of 38.6 degrees Celsius for two days. He was admitted to the acute medical unit the same day. Clozapine was ceased immediately. Blood cultures were taken and empirical intravenous piperacillin-tazobactam was started. Filgrastim was commenced on the advice of haematology.
+
+                                                                Page 3 of 3
+
+PROGRESS
+Neutrophil count on 10 April 2026: 0.9 x 10^9/L and rising. Fever has settled. The patient remains an inpatient and is improving. Clozapine will not be restarted.
+
+SERIOUSNESS
+Life-threatening: Yes
+Hospitalisation: Yes
+Death: No
+
+ASSESSMENT
+Agranulocytosis with neutropenic fever, causally related to clozapine (certain). Reported to the national clozapine monitoring registry.
+
+Signed: Dr O. Faulkner

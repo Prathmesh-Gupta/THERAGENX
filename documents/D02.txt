@@ -1,0 +1,32 @@
+ROYAL WESTBROOK HOSPITAL
+DISCHARGE SUMMARY
+
+Patient: Mr J.T.O.          Age: 67 years          Sex: Male
+Admission date: 18 January 2026     Discharge date: 29 January 2026
+Consultant: Dr A. Mensah, Hepatology
+Report prepared: 2 February 2026
+Country: Ireland
+
+PRESENTING COMPLAINT
+Two-week history of fatigue, dark urine and yellowing of the eyes.
+
+HISTORY
+Mr J.T.O. has type 2 diabetes mellitus, managed with metformin 1000 mg orally twice daily for the last six years, and hypertension managed with amlodipine 5 mg orally once daily. Atorvastatin 40 mg orally once daily at night was started by his general practitioner on 20 November 2025 for primary prevention. He drinks no alcohol. He denied any rash, pruritus, fever or joint pain. There was no recent travel and no new herbal or over-the-counter products.
+
+EXAMINATION
+Jaundiced. No hepatomegaly. No stigmata of chronic liver disease.
+
+INVESTIGATIONS ON ADMISSION
+ALT 1,240 U/L (reference < 40), AST 890 U/L, total bilirubin 148 micromol/L, ALP 210 U/L, INR 1.3. Viral hepatitis screen negative. Autoimmune screen negative. Ultrasound: normal liver, no biliary dilatation.
+
+ASSESSMENT
+Acute drug-induced liver injury, hepatocellular pattern, attributed to atorvastatin. Onset of symptoms was approximately 4 January 2026.
+
+MANAGEMENT
+Atorvastatin was discontinued on admission. Metformin and amlodipine were continued. Supportive treatment. Liver enzymes trended down during admission: ALT 410 U/L on the day of discharge, bilirubin 62 micromol/L.
+
+OUTCOME
+Improving at discharge, not yet fully recovered. Outpatient review in two weeks with repeat liver function tests. Patient advised not to be rechallenged with statins without specialist review.
+
+Dr A. Mensah
+Consultant Hepatologist

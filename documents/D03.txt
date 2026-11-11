@@ -1,0 +1,28 @@
+Suspected Adverse Drug Reaction Report - Nurse Prescriber
+Bramhall Medical Practice
+Stockport, Greater Manchester, United Kingdom
+
+Report completed: 15/05/2026 (15 May 2026)
+Reporter: Sarah Ellison, Advanced Nurse Practitioner (independent prescriber)
+
+PATIENT
+Initials: withheld at the patient's request
+Age: 45
+Sex: Male
+Weight: 92 kg
+
+SUSPECT MEDICINE
+Ibuprofen 400 mg tablets, one tablet by mouth three times a day with food, prescribed for mechanical low back pain.
+Treatment started: 03/04/2026
+Treatment stopped: 29/04/2026
+
+REACTION
+On 28/04/2026 the patient passed black tarry stools and felt faint. He attended the emergency department on 29/04/2026 where an upper gastrointestinal bleed from a duodenal ulcer was confirmed by endoscopy. Haemoglobin on arrival 84 g/L. He received two units of blood and intravenous omeprazole and was admitted for three nights.
+
+OTHER MEDICINES
+None. The patient does not take any regular medication and denies over-the-counter aspirin use.
+
+OUTCOME
+Recovered. Seen in the practice on 13/05/2026, well, haemoglobin 118 g/L.
+
+Reporter's assessment: reaction related to ibuprofen - probable.

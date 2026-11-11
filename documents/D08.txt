@@ -1,0 +1,193 @@
+Te Awa Regional Hospital
+Department of Rheumatology and Department of Haematology
+Wellington, New Zealand
+
+CLINICAL CASE REPORT - SUSPECTED SERIOUS ADVERSE DRUG REACTION
+Internal reference: TAR-RHEUM-2026-0142
+
+                                                                Page 1 of 7
+
+1. PURPOSE OF THIS REPORT
+
+This report describes the clinical course of a patient with rheumatoid arthritis who developed severe bone marrow suppression during treatment with low-dose weekly methotrexate. It is submitted to the marketing authorisation holder and to the national pharmacovigilance centre in accordance with local reporting requirements. All patient identifiers other than initials have been removed.
+
+2. PATIENT
+
+Initials: H.M.N.
+Sex: Female
+Date of birth: 1953 (age 72 years at the time of the events described below)
+Ethnicity: New Zealand European
+Height: 158 cm
+Weight: 61 kg on admission (64 kg at the rheumatology clinic visit of 2 March 2026)
+Occupation: Retired schoolteacher
+Smoking: Never smoked
+Alcohol: Occasional, less than 2 standard drinks per week
+
+3. RELEVANT MEDICAL HISTORY
+
+Seropositive rheumatoid arthritis, diagnosed in 2019. Initial treatment with hydroxychloroquine was stopped in 2021 because of inadequate response. Sulfasalazine was tried for eight months in 2021 and 2022 and stopped because of nausea.
+
+Chronic kidney disease stage 3a, attributed to long-standing hypertension. Baseline estimated glomerular filtration rate 52 mL/min/1.73 m2 in December 2025.
+
+Hypertension, diagnosed 2008, well controlled.
+
+Gastro-oesophageal reflux disease.
+
+Osteoporosis, diagnosed 2023 after a wrist fracture. Treated with annual intravenous zoledronic acid; last infusion August 2025.
+
+No known drug allergies.
+
+                                                                Page 2 of 7
+
+4. SUSPECT MEDICINE
+
+Methotrexate 2.5 mg tablets (oral).
+
+Methotrexate was started by the rheumatology service on 7 October 2025 at a dose of 15 mg orally once weekly, taken on Tuesdays, together with folic acid 5 mg orally once weekly on Thursdays. The patient was counselled verbally and in writing on the once-weekly schedule and on the warning signs of toxicity.
+
+Monitoring blood tests were performed every four weeks. Results were unremarkable through to February 2026 (see Table 2 on page 4).
+
+At the rheumatology clinic visit on 2 March 2026 the patient reported persistent synovitis of both wrists and the right knee (DAS28-CRP 4.9). The treating rheumatologist increased the dose of methotrexate to 20 mg orally once weekly from that date. Folic acid was continued unchanged. A repeat blood test was requested for four weeks later.
+
+The patient confirmed, on direct questioning after admission, that she had taken methotrexate strictly once weekly at the prescribed dose and had not taken any extra tablets.
+
+5. CONCOMITANT MEDICINES AT THE TIME OF THE EVENT
+
+Table 1. Concomitant medicines
+
+  Medicine            Dose and frequency              Route   Started      Indication
+  ------------------  ------------------------------  ------  -----------  --------------------------
+  Folic acid          5 mg once weekly (Thursdays)    Oral    Oct 2025     Methotrexate supplementation
+  Omeprazole          20 mg once daily                Oral    2017         Reflux disease
+  Cilazapril          2.5 mg once daily               Oral    2008         Hypertension
+  Paracetamol         1 g up to four times daily PRN  Oral    2019         Arthritis pain
+  Zoledronic acid     5 mg once yearly                IV      2023         Osteoporosis (last Aug 2025)
+
+The patient had not taken any non-steroidal anti-inflammatory drug, trimethoprim, co-trimoxazole or any other antifolate in the preceding six months. She had not received any vaccine in the preceding three months.
+
+                                                                Page 3 of 7
+
+6. CLINICAL COURSE
+
+6.1 Presentation
+
+On 24 March 2026 the patient presented to the emergency department with a five-day history of painful mouth ulcers, difficulty swallowing, fatigue and easy bruising on the forearms. Her daughter reported that the patient had become increasingly lethargic over the preceding week. She had taken her weekly methotrexate dose on 17 March 2026 as scheduled.
+
+On examination: temperature 38.9 degrees Celsius, heart rate 112 beats per minute, blood pressure 98/56 mmHg, respiratory rate 22 breaths per minute, oxygen saturation 95 percent on room air. Extensive oral mucositis with confluent ulceration of the buccal mucosa, tongue and soft palate. Scattered ecchymoses on both forearms and petechiae on the lower legs. No focal source of infection identified on examination. Chest clear.
+
+6.2 Initial investigations
+
+Full blood count on arrival: haemoglobin 82 g/L, white cell count 0.6 x 10^9/L, absolute neutrophil count 0.1 x 10^9/L, platelet count 14 x 10^9/L. Blood film: pancytopenia, no blasts, no dysplastic features.
+
+Renal function: creatinine 168 micromol/L (baseline 104), estimated glomerular filtration rate 27 mL/min/1.73 m2. Urea 14.2 mmol/L. Sodium 134 mmol/L, potassium 4.6 mmol/L.
+
+Liver function: ALT 68 U/L, AST 54 U/L, bilirubin 19 micromol/L, albumin 29 g/L.
+
+C-reactive protein 212 mg/L. Lactate 2.8 mmol/L. Procalcitonin 9.4 micrograms/L.
+
+Serum methotrexate concentration (drawn approximately 7 days after the last dose): 0.09 micromol/L, which the laboratory reported as above the expected level for the time elapsed since a low oral dose.
+
+Blood cultures, urine culture and a swab of the oral ulcers were sent. Chest radiograph: no consolidation.
+
+6.3 Working diagnosis
+
+Methotrexate toxicity with pancytopenia, severe oral mucositis and neutropenic sepsis, probably precipitated by the recent dose increase in the setting of acute-on-chronic kidney impairment with reduced methotrexate clearance.
+
+                                                                Page 4 of 7
+
+Table 2. Haematology and renal monitoring results
+
+  Date          Hb (g/L)   WCC      ANC      Platelets   Creatinine   eGFR
+                           (10^9/L) (10^9/L) (10^9/L)    (micromol/L)
+  ------------  ---------  -------  -------  ----------  -----------  ----
+  07 Oct 2025   124        7.1      4.6      268         101          54
+  04 Nov 2025   122        6.8      4.2      255         104          52
+  02 Dec 2025   121        6.4      3.9      249         106          51
+  30 Dec 2025   119        6.2      3.7      241         103          53
+  27 Jan 2026   118        6.0      3.5      236         107          50
+  24 Feb 2026   117        5.7      3.3      230         108          50
+  02 Mar 2026   116        5.9      3.4      228         104          52
+  24 Mar 2026    82        0.6      0.1       14         168          27
+  25 Mar 2026    78        0.4      0.0       11         181          25
+  26 Mar 2026    74        0.3      0.0        9         176          26
+  27 Mar 2026    79        0.5      0.1        8         162          28
+  28 Mar 2026    81        0.9      0.3       12         149          31
+  29 Mar 2026    77        1.4      0.6       15         158          29
+
+Hb = haemoglobin; WCC = white cell count; ANC = absolute neutrophil count; eGFR = estimated glomerular filtration rate.
+
+Note: the planned four-week monitoring test after the dose increase of 2 March 2026 would have fallen due on or about 30 March 2026. The patient presented six days before that date.
+
+                                                                Page 5 of 7
+
+6.4 Management
+
+The patient was admitted to the haematology ward under joint rheumatology and haematology care.
+
+Methotrexate was discontinued permanently on 24 March 2026.
+
+Intravenous folinic acid (calcium folinate) rescue was commenced in the emergency department at 15 mg every six hours and continued for 72 hours.
+
+Empirical intravenous piperacillin-tazobactam was started within one hour of arrival after blood cultures were drawn, in line with the hospital's neutropenic sepsis pathway. Vancomycin was added on day 2 when blood cultures grew a Gram-positive coccus, later identified as viridans group Streptococcus, consistent with an oral mucosal source.
+
+Filgrastim 300 micrograms subcutaneously once daily was commenced on 24 March 2026 on the advice of haematology.
+
+Supportive care included intravenous fluids, platelet transfusion on 25 and 26 March 2026 (platelet count below 10 x 10^9/L), two units of packed red cells on 26 March 2026, mouth care with chlorhexidine and lidocaine mouthwash, and total parenteral nutrition from 26 March 2026 because of inability to swallow.
+
+Omeprazole was changed to intravenous pantoprazole. Cilazapril was withheld because of hypotension and acute kidney injury. Paracetamol was continued.
+
+6.5 Progress
+
+Days 1 to 3 (24 to 26 March 2026): The patient remained febrile despite antibiotics. Hypotension responded to intravenous fluids initially. Mucositis worsened; she was unable to take anything by mouth.
+
+Day 4 (27 March 2026): The neutrophil count showed early recovery (0.1 x 10^9/L). Fever persisted. Repeat blood cultures from 26 March 2026 were negative.
+
+Day 5 (28 March 2026): Neutrophil count 0.3 x 10^9/L. The patient developed increasing shortness of breath. Oxygen saturation fell to 88 percent on room air; she was started on high-flow nasal oxygen. Chest radiograph showed new bilateral lower zone infiltrates. A CT scan of the chest was consistent with bilateral pneumonia; no pulmonary embolus was seen. Antibiotics were broadened to meropenem. The intensive care team reviewed the patient; after discussion with the patient and her family, and in keeping with her previously documented wishes, a decision was made not to escalate to invasive ventilation.
+
+                                                                Page 6 of 7
+
+Day 6 (29 March 2026): The patient deteriorated further overnight with worsening hypoxaemia and hypotension not responsive to fluids. The neutrophil count had risen to 0.6 x 10^9/L. A family meeting was held and the focus of care was changed to comfort.
+
+Day 7 (30 March 2026): The patient died at 04:35 on 30 March 2026 with her family present.
+
+7. OUTCOME
+
+Fatal. The cause of death recorded on the death certificate was:
+  1a. Bilateral pneumonia with septic shock
+  1b. Neutropenia due to methotrexate toxicity
+  2.  Rheumatoid arthritis; chronic kidney disease stage 3
+
+The case was referred to the coroner, who accepted the clinical cause of death and did not require a post-mortem examination.
+
+8. SERIOUSNESS
+
+  Death                          Yes
+  Life-threatening               Yes
+  Hospitalisation                Yes (admitted 24 March 2026, died in hospital 30 March 2026)
+  Persistent disability          Not applicable
+  Congenital anomaly             Not applicable
+  Other medically important      Not applicable
+
+9. CAUSALITY ASSESSMENT
+
+The temporal relationship between the dose increase of 2 March 2026 and the onset of mucositis on or about 19 March 2026 (five days before presentation), the pattern of pancytopenia with mucositis, the raised serum methotrexate concentration seven days after the last dose, the recovery of the neutrophil count following folinic acid rescue and filgrastim, and the absence of an alternative explanation all support a causal role for methotrexate. Acute-on-chronic kidney impairment reduced methotrexate clearance and is considered a contributing factor. The dose increase from 15 mg to 20 mg once weekly in a patient with an estimated glomerular filtration rate of about 50 mL/min/1.73 m2 is considered, in retrospect, to have carried a higher risk than appreciated at the time.
+
+The treating team's assessment: methotrexate - probable. Death related to the adverse reaction: yes.
+
+                                                                Page 7 of 7
+
+10. ADDITIONAL INFORMATION
+
+No dispensing or administration error was identified on review of the community pharmacy record and the patient's own medication diary. The patient had taken a total of 24 weekly doses.
+
+The case has been discussed at the hospital's morbidity and mortality meeting. Local actions include a review of the renal-dose guidance in the departmental methotrexate protocol and a change to the monitoring interval after any dose increase in patients with an estimated glomerular filtration rate below 60 mL/min/1.73 m2.
+
+11. REPORTER
+
+Dr Priya Natarajan, Consultant Rheumatologist (reporting clinician)
+Dr Callum Whitford, Consultant Haematologist
+Te Awa Regional Hospital, Wellington, New Zealand
+
+Date of this report: 14 April 2026
+
+This report contains confidential patient information and is intended only for the addressee.
