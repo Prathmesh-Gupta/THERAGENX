@@ -1,6 +1,8 @@
 package com.theragenx.theragenx_api.extraction.provider;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.theragenx.theragenx_api.extraction.fixtures.FixtureDocumentId;
+import com.theragenx.theragenx_api.extraction.fixtures.FixtureRecorder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpHeaders;
@@ -22,14 +24,17 @@ public class OpenAIProvider implements LanguageModelProvider {
     private final RestClient restClient;
     private final String apiKey;
     private final String model;
+    private final FixtureRecorder fixtureRecorder;
 
     public OpenAIProvider(
+            FixtureRecorder fixtureRecorder,
             @Value("${app.openai.api-key:}") String apiKey,
             @Value("${app.openai.model:gpt-4.1-mini}") String model,
             @Value("${app.openai.base-url:https://api.openai.com/v1}") String baseUrl
     ) {
         this.apiKey = apiKey;
         this.model = model;
+        this.fixtureRecorder = fixtureRecorder;
         this.restClient = RestClient.builder()
                 .baseUrl(baseUrl)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
@@ -81,6 +86,9 @@ public class OpenAIProvider implements LanguageModelProvider {
             throw new IllegalStateException("OpenAI returned no message content.");
         }
 
-        return content.asText();
+        String modelText = content.asText();
+        // Store only the prompt and model text. The API key is never written to disk.
+        fixtureRecorder.record(FixtureDocumentId.fromPrompt(prompt), providerName(), model, prompt, modelText);
+        return modelText;
     }
 }
