@@ -74,6 +74,49 @@ public class DocumentDuplicateService {
     }
 
 
+
+    /**
+     * Explicitly claims a previously processed document for re-extraction.
+     * Only the same source document can force a reprocessing operation.
+     */
+    public synchronized Check beginReprocessing(
+            String documentId, String content) {
+
+        String hash = sha256(content == null ? "" : content);
+
+        Entry existing = entries.get(hash);
+
+        if (existing != null
+                && existing.state() == State.IN_PROGRESS) {
+            return new Check(State.IN_PROGRESS, existing.documentId());
+        }
+
+        // Do not allow a document to bypass duplicate detection
+        // for content belonging to a different document.
+        if (existing != null
+                && !existing.documentId().equals(documentId)
+                && existing.state() == State.COMPLETED) {
+
+            return new Check(State.COMPLETED, existing.documentId());
+        }
+
+        entries.put(hash, new Entry(documentId, State.IN_PROGRESS));
+
+        try {
+            persistIndex();
+        } catch (RuntimeException exception) {
+            if (existing == null) {
+                entries.remove(hash);
+            } else {
+                entries.put(hash, existing);
+            }
+            throw exception;
+        }
+
+        return new Check(State.NEW, null);
+    }
+
+
     public synchronized void markCompleted(String documentId, String content) {
         String hash = sha256(content == null ? "" : content);
         Entry existing = entries.get(hash);

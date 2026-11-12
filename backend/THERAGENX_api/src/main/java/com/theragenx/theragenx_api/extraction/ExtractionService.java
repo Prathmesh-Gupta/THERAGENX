@@ -26,6 +26,7 @@ import java.util.List;
 
 @Service
 public class ExtractionService {
+
     private final DocumentService documentService;
     private final CatalogService catalogService;
     private final ExtractionPromptBuilder promptBuilder;
@@ -39,14 +40,20 @@ public class ExtractionService {
     private final CaseValidationService caseValidationService;
     private final ExtractionOutputStore outputStore;
 
-    public ExtractionService(DocumentService documentService, CatalogService catalogService,
-                             ExtractionPromptBuilder promptBuilder, LanguageModelProvider provider,
-                             ObjectMapper objectMapper, StructuralValidator structuralValidator,
-                             CatalogValidator catalogValidator, EvidenceValidator evidenceValidator,
-                             DocumentDuplicateService documentDuplicateService,
-                             CaseDuplicateDetector caseDuplicateDetector,
-                             CaseValidationService caseValidationService,
-                             ExtractionOutputStore outputStore) {
+    public ExtractionService(
+            DocumentService documentService,
+            CatalogService catalogService,
+            ExtractionPromptBuilder promptBuilder,
+            LanguageModelProvider provider,
+            ObjectMapper objectMapper,
+            StructuralValidator structuralValidator,
+            CatalogValidator catalogValidator,
+            EvidenceValidator evidenceValidator,
+            DocumentDuplicateService documentDuplicateService,
+            CaseDuplicateDetector caseDuplicateDetector,
+            CaseValidationService caseValidationService,
+            ExtractionOutputStore outputStore) {
+
         this.documentService = documentService;
         this.catalogService = catalogService;
         this.promptBuilder = promptBuilder;
@@ -61,15 +68,30 @@ public class ExtractionService {
         this.outputStore = outputStore;
     }
 
+    // Normal extraction. Existing saved results are reused.
     public ExtractionResult extract(String documentId) {
+        return processDocument(documentId, false);
+    }
+
+    // Explicit re-extraction. The LLM is invoked again.
+    public ExtractionResult reextract(String documentId) {
+        return processDocument(documentId, true);
+    }
+
+    private ExtractionResult processDocument(String documentId, boolean force) {
+
         DocumentContent document = documentService.getDocument(documentId);
-        DocumentDuplicateService.Check check =
-                documentDuplicateService.beginProcessing(document.id(), document.content());
+
+        DocumentDuplicateService.Check check = force
+                ? documentDuplicateService.beginReprocessing(
+                document.id(), document.content())
+                : documentDuplicateService.beginProcessing(
+                document.id(), document.content());
 
         if (check.state() == DocumentDuplicateService.State.COMPLETED) {
 
-            // Same document: return previously saved extraction.
             if (check.originalDocumentId() == null) {
+
                 var savedOutput = outputStore.load(documentId);
 
                 if (savedOutput.isPresent()) {
@@ -84,10 +106,11 @@ public class ExtractionService {
                     );
                 }
 
-                // Index exists but output is missing. Allow regeneration.
-                documentDuplicateService.markFailed(documentId, document.content());
+                documentDuplicateService.markFailed(
+                        documentId, document.content());
+
             } else {
-                // Different document with identical content.
+
                 ObjectNode duplicateResult = objectMapper.createObjectNode();
                 duplicateResult.put("document_id", documentId);
                 duplicateResult.put("status", "DUPLICATE");
@@ -107,99 +130,144 @@ public class ExtractionService {
         }
 
         if (check.state() == DocumentDuplicateService.State.IN_PROGRESS) {
+
             ObjectNode pendingResult = objectMapper.createObjectNode();
             pendingResult.put("document_id", documentId);
             pendingResult.put("status", "IN_PROGRESS");
             pendingResult.set("cases", objectMapper.createArrayNode());
-            return new ExtractionResult(documentId, provider.providerName(), provider.modelName(),
-                    pendingResult, new ValidationReport(List.of()), "IN_PROGRESS", null);
+
+            return new ExtractionResult(
+                    documentId,
+                    provider.providerName(),
+                    provider.modelName(),
+                    pendingResult,
+                    new ValidationReport(List.of()),
+                    "IN_PROGRESS",
+                    null
+            );
         }
 
         try {
             FieldCatalog fieldCatalog = catalogService.getCatalog();
-            String prompt = promptBuilder.build(document.id(), document.content(), fieldCatalog);
+
+            String prompt = promptBuilder.build(
+                    document.id(), document.content(), fieldCatalog);
+
             String response = provider.generateJson(prompt);
+
             JsonNode parsed;
+
             try {
                 parsed = objectMapper.readTree(response);
             } catch (JsonProcessingException exception) {
-                throw new IllegalStateException("Unable to parse LLM JSON response for " + documentId, exception);
+                throw new IllegalStateException(
+                        "Unable to parse LLM JSON response for " + documentId,
+                        exception);
             }
+
             if (parsed == null || !parsed.isObject()) {
-                throw new IllegalStateException("Model response must be a JSON object.");
+                throw new IllegalStateException(
+                        "Model response must be a JSON object.");
             }
+
             ObjectNode json = (ObjectNode) parsed;
             JsonNode catalogJson = objectMapper.valueToTree(fieldCatalog);
 
-            var structuralReport = structuralValidator.validate(json, catalogJson);
-            var catalogReport = catalogValidator.validate(json, catalogJson);
-            var evidenceReport = evidenceValidator.validateAndEnrich(json, document.content());
+            var structuralReport =
+                    structuralValidator.validate(json, catalogJson);
+
+            var catalogReport =
+                    catalogValidator.validate(json, catalogJson);
+
+            var evidenceReport =
+                    evidenceValidator.validateAndEnrich(json, document.content());
+
             List<String> allErrors = new ArrayList<>();
             allErrors.addAll(structuralReport.errors());
             allErrors.addAll(catalogReport.errors());
             allErrors.addAll(evidenceReport.errors());
 
-            // Validate the four minimum case elements before any case enters the duplicate index.
+            // Validate cases for review and duplicate-detection eligibility.
+            // Never discard an extracted case because minimum information is missing.
             ArrayNode cases = json.withArray("cases");
+
             List<JsonNode> candidates = new ArrayList<>();
             List<Boolean> eligible = new ArrayList<>();
             List<Integer> originalIndexes = new ArrayList<>();
-            ArrayNode rejectedCases = objectMapper.createArrayNode();
+
             for (int i = 0; i < cases.size(); i++) {
+
                 JsonNode candidate = cases.get(i);
                 var caseReport = caseValidationService.validate(candidate);
+
                 if (candidate instanceof ObjectNode mutableCase) {
-                    mutableCase.set("caseValidation", objectMapper.valueToTree(caseReport));
+                    mutableCase.set(
+                            "caseValidation",
+                            objectMapper.valueToTree(caseReport));
                 }
-                if (caseReport.validCase()) {
-                    candidates.add(candidate);
-                    eligible.add(true);
-                    originalIndexes.add(i);
-                } else {
-                    ObjectNode rejected = objectMapper.createObjectNode();
-                    rejected.put("sourceCaseIndex", i);
-                    rejected.set("caseValidation", objectMapper.valueToTree(caseReport));
-                    rejectedCases.add(rejected);
-                    for (String error : caseReport.errors()) allErrors.add("cases[" + i + "]: " + error);
+
+                // Retain every case. Only complete cases enter duplicate detection.
+                candidates.add(candidate);
+                eligible.add(caseReport.validCase());
+                originalIndexes.add(i);
+
+                for (String error : caseReport.errors()) {
+                    allErrors.add("cases[" + i + "]: " + error);
                 }
             }
 
-            List<Boolean> duplicateFlags = caseDuplicateDetector.compareAndRegister(
-                    candidates, eligible, document.id());
+            // Same-document entries are replaced by CaseDuplicateDetector.
+            // Ineligible cases are retained but must not be indexed as duplicates.
+            List<Boolean> duplicateFlags =
+                    caseDuplicateDetector.compareAndRegister(
+                            candidates, eligible, document.id());
+
             ArrayNode finalCases = objectMapper.createArrayNode();
+
             for (int i = 0; i < candidates.size(); i++) {
                 ObjectNode mutableCase = (ObjectNode) candidates.get(i);
                 boolean duplicate = duplicateFlags.get(i);
                 mutableCase.put("possibleDuplicate", duplicate);
+
                 if (duplicate) {
-                    // Keep the case in the response for human review, but don't add it to the canonical index.
-                    allErrors.add("cases[" + originalIndexes.get(i) + "]: Possible duplicate case detected.");
+                    allErrors.add(
+                            "cases[" + originalIndexes.get(i)
+                                    + "]: Possible duplicate case detected.");
                 }
+
                 finalCases.add(mutableCase);
             }
-            json.set("cases", finalCases);
-            if (!rejectedCases.isEmpty()) json.set("rejectedCases", rejectedCases);
-            if (!rejectedCases.isEmpty()) {
-                ArrayNode flags = json.withArray("flags");
-                if (!containsText(flags, "one_or_more_cases_missing_minimum_elements")) {
-                    flags.add("one_or_more_cases_missing_minimum_elements");
-                }
-            }
 
-            ValidationReport combinedReport = new ValidationReport(allErrors);
-            // Persist the canonical extraction JSON before marking the document completed.
+            json.set("cases", finalCases);
+
+            ValidationReport combinedReport =
+                    new ValidationReport(allErrors);
+
+            // Save only after extraction and validation have completed.
+            // Existing output remains untouched if extraction fails earlier.
             outputStore.save(documentId, json);
-            documentDuplicateService.markCompleted(document.id(), document.content());
-            return new ExtractionResult(documentId, provider.providerName(), provider.modelName(),
-                    json, combinedReport, "PROCESSED", null);
+
+            documentDuplicateService.markCompleted(
+                    document.id(), document.content());
+
+            return new ExtractionResult(
+                    documentId,
+                    provider.providerName(),
+                    provider.modelName(),
+                    json,
+                    combinedReport,
+                    "PROCESSED",
+                    null
+            );
+
         } catch (RuntimeException exception) {
-            documentDuplicateService.markFailed(document.id(), document.content());
+
+            documentDuplicateService.markFailed(
+                    document.id(), document.content());
+
             throw exception;
         }
     }
 
-    private boolean containsText(ArrayNode array, String expected) {
-        for (JsonNode item : array) if (expected.equals(item.asText())) return true;
-        return false;
-    }
 }
+
