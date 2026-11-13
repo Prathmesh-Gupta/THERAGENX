@@ -33,6 +33,14 @@ public class CatalogController {
         return ResponseEntity.ok(response("Catalog uploaded and activated successfully.", catalog));
     }
 
+    @PutMapping
+    public ResponseEntity<Map<String,Object>> saveCatalog(@RequestBody FieldCatalog catalog) {
+        FieldCatalog saved = catalogService.saveCatalog(catalog);
+        return ResponseEntity.ok(response("Catalog saved and activated successfully.", saved));
+    }
+
+
+
     @PostMapping("/reload")
     public ResponseEntity<Map<String, Object>> reloadCatalog() {
         FieldCatalog catalog = catalogService.reloadCatalog();

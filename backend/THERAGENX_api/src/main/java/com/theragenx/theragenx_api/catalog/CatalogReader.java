@@ -89,6 +89,27 @@ public class CatalogReader {
         }
     }
 
+
+    public synchronized FieldCatalog saveCatalog(FieldCatalog catalog) {
+        if (catalog == null) throw new IllegalArgumentException("Catalog body is required.");
+        Path temporaryFile = null;
+        try {
+            Files.createDirectories(catalogPath.getParent());
+            temporaryFile = Files.createTempFile(catalogPath.getParent(), "catalog-edit-", ".json");
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(temporaryFile.toFile(), catalog);
+            FieldCatalog candidate = readAndValidate(temporaryFile);
+            java.util.Set<String> ids = new java.util.HashSet<>();
+            for (var field : candidate.fields()) if (!ids.add(field.id())) throw new IllegalArgumentException("Duplicate field ID: " + field.id());
+            try { Files.move(temporaryFile, catalogPath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE); }
+            catch (java.nio.file.AtomicMoveNotSupportedException ignored) { Files.move(temporaryFile, catalogPath, StandardCopyOption.REPLACE_EXISTING); }
+            activeCatalog.set(candidate); loadedAt = Instant.now(); return candidate;
+        } catch (IOException ex) { throw new IllegalStateException("Unable to save catalog.", ex); }
+        finally { if (temporaryFile != null) try { Files.deleteIfExists(temporaryFile); } catch (IOException ignored) {} }
+    }
+
+
+
+
     private FieldCatalog readAndValidate(Path path) throws IOException {
         if (!Files.exists(path)) {
             throw new IllegalStateException("Catalog file not found: " + path);

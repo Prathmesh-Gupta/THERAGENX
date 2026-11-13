@@ -1,0 +1,25 @@
+DEMO REPORT – FICTIONAL PATIENT
+
+St Alder Demo Clinic
+Department of General Medicine
+
+Date: 14 November 2026
+
+To: Drug Safety Department
+Subject: Suspected adverse drug reaction
+
+This is a fictional report created only for testing the THERAGENX upload and extraction workflow.
+
+Patient: Alex R., 46-year-old male.
+
+The patient started ibuprofen 200 mg tablets by mouth, twice daily, on 10 November 2026 for back pain.
+
+On 12 November 2026, the patient developed an itchy red rash on both arms and the upper chest. He contacted the clinic on the same day. The clinician advised him to stop ibuprofen. The rash was improving by 14 November 2026.
+
+The patient was not taking any other regular medication. No hospital admission was required. The reporter considered the reaction possibly related to ibuprofen.
+
+Reported by:
+Dr Morgan Lee
+Demo General Practitioner
+
+END OF FICTIONAL DEMO REPORT

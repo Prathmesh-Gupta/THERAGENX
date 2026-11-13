@@ -23,6 +23,10 @@ public class CatalogService {
         return catalogReader.uploadCatalog(file);
     }
 
+    public FieldCatalog saveCatalog(FieldCatalog catalog) { return catalogReader.saveCatalog(catalog); }
+
+
+
     public FieldCatalog reloadCatalog() {
         return catalogReader.reloadCatalog();
     }

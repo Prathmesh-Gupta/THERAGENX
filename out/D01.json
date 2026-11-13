@@ -1,0 +1,189 @@
+{
+  "document_id" : "D01",
+  "cases" : [ {
+    "fields" : {
+      "patient_initials" : {
+        "status" : "extracted",
+        "value" : "MK",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Mrs M.K.",
+          "start" : 276,
+          "end" : 284
+        } ],
+        "note" : null
+      },
+      "patient_age_years" : {
+        "status" : "extracted",
+        "value" : 54,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "54-year-old",
+          "start" : 288,
+          "end" : 299
+        } ],
+        "note" : null
+      },
+      "patient_sex" : {
+        "status" : "extracted",
+        "value" : "female",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "woman",
+          "start" : 300,
+          "end" : 305
+        } ],
+        "note" : null
+      },
+      "suspect_drug_name" : {
+        "status" : "extracted",
+        "value" : "amoxicillin",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "amoxicillin",
+          "start" : 373,
+          "end" : 384
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_value" : {
+        "status" : "extracted",
+        "value" : 500,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "amoxicillin 500 mg capsules",
+          "start" : 373,
+          "end" : 400
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_unit" : {
+        "status" : "extracted",
+        "value" : "mg",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "500 mg",
+          "start" : 385,
+          "end" : 391
+        } ],
+        "note" : null
+      },
+      "suspect_drug_route" : {
+        "status" : "extracted",
+        "value" : "oral",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "one capsule orally",
+          "start" : 402,
+          "end" : 420
+        } ],
+        "note" : null
+      },
+      "suspect_drug_start_date" : {
+        "status" : "extracted",
+        "value" : "2026-03-02",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "She took the first dose on 2 March 2026",
+          "start" : 481,
+          "end" : 520
+        } ],
+        "note" : null
+      },
+      "event_onset_date" : {
+        "status" : "extracted",
+        "value" : "2026-03-04",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "On 4 March 2026 she developed",
+          "start" : 523,
+          "end" : 552
+        } ],
+        "note" : null
+      },
+      "event_terms" : {
+        "status" : "extracted",
+        "value" : [ "maculopapular rash", "lip swelling", "periorbital swelling" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "widespread pruritic maculopapular rash on the trunk and limbs, followed within hours by swelling of the lips and periorbital area",
+          "start" : 555,
+          "end" : 684
+        } ],
+        "note" : null
+      },
+      "event_outcome" : {
+        "status" : "extracted",
+        "value" : "recovered",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The rash and the facial swelling resolved completely by 7 March 2026",
+          "start" : 868,
+          "end" : 936
+        } ],
+        "note" : null
+      },
+      "seriousness_criteria" : {
+        "status" : "extracted",
+        "value" : [ "hospitalization" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "She attended the emergency department and was admitted for observation",
+          "start" : 686,
+          "end" : 756
+        } ],
+        "note" : null
+      },
+      "reporter_type" : {
+        "status" : "extracted",
+        "value" : "physician",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Dr Helen Carrow",
+          "start" : 1118,
+          "end" : 1133
+        } ],
+        "note" : null
+      },
+      "report_date" : {
+        "status" : "extracted",
+        "value" : "2026-03-10",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Date: 10 March 2026",
+          "start" : 68,
+          "end" : 87
+        } ],
+        "note" : null
+      },
+      "country" : {
+        "status" : "extracted",
+        "value" : "GB",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Leeds, United Kingdom",
+          "start" : 45,
+          "end" : 66
+        } ],
+        "note" : null
+      },
+      "concomitant_drugs" : {
+        "status" : "extracted",
+        "value" : [ ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "She was not taking any other medication at the time of the reaction",
+          "start" : 966,
+          "end" : 1033
+        } ],
+        "note" : null
+      }
+    },
+    "caseValidation" : {
+      "validCase" : true,
+      "errors" : [ ]
+    },
+    "possibleDuplicate" : false
+  } ],
+  "flags" : [ ]
+}

@@ -1,0 +1,185 @@
+{
+  "document_id" : "NEW_REPORT_UPLOAD",
+  "cases" : [ {
+    "fields" : {
+      "patient_initials" : {
+        "status" : "extracted",
+        "value" : "AR",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Patient: Alex R., 46-year-old male.",
+          "start" : 278,
+          "end" : 313
+        } ],
+        "note" : null
+      },
+      "patient_age_years" : {
+        "status" : "extracted",
+        "value" : 46,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Patient: Alex R., 46-year-old male.",
+          "start" : 278,
+          "end" : 313
+        } ],
+        "note" : null
+      },
+      "patient_sex" : {
+        "status" : "extracted",
+        "value" : "male",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Patient: Alex R., 46-year-old male.",
+          "start" : 278,
+          "end" : 313
+        } ],
+        "note" : null
+      },
+      "suspect_drug_name" : {
+        "status" : "extracted",
+        "value" : "ibuprofen",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The patient started ibuprofen 200 mg tablets by mouth",
+          "start" : 315,
+          "end" : 368
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_value" : {
+        "status" : "extracted",
+        "value" : 200,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The patient started ibuprofen 200 mg tablets",
+          "start" : 315,
+          "end" : 359
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_unit" : {
+        "status" : "extracted",
+        "value" : "mg",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "ibuprofen 200 mg tablets",
+          "start" : 335,
+          "end" : 359
+        } ],
+        "note" : null
+      },
+      "suspect_drug_route" : {
+        "status" : "extracted",
+        "value" : "oral",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "by mouth",
+          "start" : 360,
+          "end" : 368
+        } ],
+        "note" : null
+      },
+      "suspect_drug_start_date" : {
+        "status" : "extracted",
+        "value" : "2026-11-10",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "started ibuprofen 200 mg tablets by mouth, twice daily, on 10 November 2026",
+          "start" : 327,
+          "end" : 402
+        } ],
+        "note" : null
+      },
+      "event_onset_date" : {
+        "status" : "extracted",
+        "value" : "2026-11-12",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "On 12 November 2026, the patient developed an itchy red rash",
+          "start" : 419,
+          "end" : 479
+        } ],
+        "note" : null
+      },
+      "event_terms" : {
+        "status" : "extracted",
+        "value" : [ "rash" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "developed an itchy red rash on both arms and the upper chest",
+          "start" : 452,
+          "end" : 512
+        } ],
+        "note" : null
+      },
+      "event_outcome" : {
+        "status" : "extracted",
+        "value" : "recovering",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The rash was improving by 14 November 2026",
+          "start" : 600,
+          "end" : 642
+        } ],
+        "note" : null
+      },
+      "seriousness_criteria" : {
+        "status" : "extracted",
+        "value" : [ "none" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "No hospital admission was required",
+          "start" : 702,
+          "end" : 736
+        } ],
+        "note" : null
+      },
+      "reporter_type" : {
+        "status" : "extracted",
+        "value" : "physician",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Reported by:\nDr Morgan Lee",
+          "start" : 807,
+          "end" : 833
+        } ],
+        "note" : null
+      },
+      "report_date" : {
+        "status" : "extracted",
+        "value" : "2026-11-14",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Date: 14 November 2026",
+          "start" : 86,
+          "end" : 108
+        } ],
+        "note" : null
+      },
+      "country" : {
+        "status" : "unknown",
+        "value" : null,
+        "confidence" : "low",
+        "evidence" : [ ],
+        "note" : null
+      },
+      "concomitant_drugs" : {
+        "status" : "extracted",
+        "value" : [ ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The patient was not taking any other regular medication.",
+          "start" : 645,
+          "end" : 701
+        } ],
+        "note" : null
+      }
+    },
+    "caseValidation" : {
+      "validCase" : true,
+      "errors" : [ ]
+    },
+    "possibleDuplicate" : false
+  } ],
+  "flags" : [ ]
+}

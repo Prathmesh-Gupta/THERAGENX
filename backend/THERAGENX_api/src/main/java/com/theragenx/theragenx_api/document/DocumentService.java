@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class DocumentService {
@@ -41,6 +43,10 @@ public class DocumentService {
         JsonNode output = outputStore.load(documentId).orElse(null);
         return new DocumentDetail(document, output, output != null);
     }
+
+    public Map<String,Object> checkDuplicate(MultipartFile file) { return documentReader.checkDuplicate(file); }
+    public String uploadDocument(MultipartFile file, boolean allowDuplicate) { return documentReader.uploadDocument(file, allowDuplicate); }
+
 
     /** Kept for extraction pipeline callers. */
     public DocumentContent getDocument(String documentId) { return documentReader.getDocument(documentId); }

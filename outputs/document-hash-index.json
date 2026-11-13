@@ -1,0 +1,42 @@
+{
+  "264ad60cc848a2ea40a76964f2eb588c05028433b9d5892dd6c677a5770e4e14" : {
+    "documentId" : "D01",
+    "state" : "COMPLETED"
+  },
+  "7b3838cebdc408f00eab4d39980b53049f1c54e9ef35e3368d8e236f355f2b97" : {
+    "documentId" : "D07",
+    "state" : "COMPLETED"
+  },
+  "24c77185ad5d87d8a571ea2bbe4da584c8b5cc3948d894e6c70ff4f5e71dc266" : {
+    "documentId" : "D06",
+    "state" : "COMPLETED"
+  },
+  "c9f555827a9af01307910274e602d00bb394aefa7ca7d544861f97436df164f5" : {
+    "documentId" : "D02",
+    "state" : "COMPLETED"
+  },
+  "db48d3137184349f28c0f57d316e66f5c20bb39f0c7d16f39fdbeccb426a4e79" : {
+    "documentId" : "D03",
+    "state" : "COMPLETED"
+  },
+  "cbd45de74c712cf60c7ebde341413f51d7415171f43d74956012a707b08a72f7" : {
+    "documentId" : "D04",
+    "state" : "COMPLETED"
+  },
+  "bcc6e9dd74f6c57b93e7bb4dbc9422a62cb7dcfd039a9046ef2ccb1f5fbacb76" : {
+    "documentId" : "D05",
+    "state" : "COMPLETED"
+  },
+  "6caa9086ee9e88144cd8ca581bd0bbdd4e18386489cec125a11249ba2b1bf823" : {
+    "documentId" : "D08",
+    "state" : "COMPLETED"
+  },
+  "d7f44d6dfb59ff82752ab1cf817f925283bffaff79b52c868487fd4616b0c191" : {
+    "documentId" : "D01_2",
+    "state" : "COMPLETED"
+  },
+  "69cb50a3bf76ff10d32cb30735844ed2c9050ac8cf1b968c157dacfd4e7d735e" : {
+    "documentId" : "NEW_REPORT_UPLOAD",
+    "state" : "COMPLETED"
+  }
+}

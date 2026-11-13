@@ -3,7 +3,6 @@ package com.theragenx.theragenx_api.extraction.duplicate;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,10 +16,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-/** Persistent semantic duplicate index. Only validated, non-duplicate cases are registered. */
+/** Finds likely semantic duplicates AFTER extraction. It deliberately does not auto-delete or merge cases. */
 @Component
 public class CaseDuplicateDetector {
-    private static final String SOURCE_DOCUMENT_ID = "_sourceDocumentId";
     private final ObjectMapper mapper;
     private final Path indexPath;
     private final List<JsonNode> indexedCases = new ArrayList<>();
@@ -37,73 +35,58 @@ public class CaseDuplicateDetector {
         String secondPatient = normalized(value(secondCase, "patient_initials"));
         if (firstPatient.isBlank() || !firstPatient.equals(secondPatient)) return false;
 
-        // Age and sex are supporting signals when both reports provide them.
-        String firstAge = value(firstCase, "patient_age_years").trim();
-        String secondAge = value(secondCase, "patient_age_years").trim();
-        if (!firstAge.isBlank() && !secondAge.isBlank() && !firstAge.equals(secondAge)) return false;
-        String firstSex = normalized(value(firstCase, "patient_sex"));
-        String secondSex = normalized(value(secondCase, "patient_sex"));
-        if (!firstSex.isBlank() && !secondSex.isBlank() && !firstSex.equals(secondSex)) return false;
-
         Set<String> firstEvents = eventTerms(firstCase);
         Set<String> secondEvents = eventTerms(secondCase);
         if (firstEvents.isEmpty() || secondEvents.isEmpty()) return false;
+
         Set<String> intersection = new LinkedHashSet<>(firstEvents);
         intersection.retainAll(secondEvents);
         Set<String> union = new LinkedHashSet<>(firstEvents);
         union.addAll(secondEvents);
-        return !union.isEmpty() && (double) intersection.size() / union.size() >= 0.5;
+        double similarity = (double) intersection.size() / union.size();
+        return similarity >= 0.5;
     }
 
-    /**
-     * Compares cases with the persisted index and earlier eligible cases in this batch.
-     * Invalid cases and cases already identified as duplicates are not added to the index.
-     * Entries from the same source document are replaced, making retries idempotent.
-     */
-    public synchronized List<Boolean> compareAndRegister(List<JsonNode> newCases,
-                                                          List<Boolean> eligible,
-                                                          String sourceDocumentId) {
-        if (newCases.size() != eligible.size()) {
-            throw new IllegalArgumentException("newCases and eligible must have the same size");
-        }
-        List<JsonNode> baseline = new ArrayList<>();
-        for (JsonNode existing : indexedCases) {
-            if (!sourceDocumentId.equals(existing.path(SOURCE_DOCUMENT_ID).asText())) {
-                baseline.add(existing);
-            }
-        }
-
+    /** Compares against persisted cases and earlier cases in this batch, then persists the batch. */
+    public synchronized List<Boolean> compareAndRegister(List<JsonNode> newCases) {
         List<Boolean> duplicateFlags = new ArrayList<>(newCases.size());
-        List<JsonNode> acceptedFromBatch = new ArrayList<>();
-        List<JsonNode> entriesToRegister = new ArrayList<>();
-        for (int i = 0; i < newCases.size(); i++) {
-            JsonNode candidate = newCases.get(i);
-            if (!eligible.get(i)) {
-                duplicateFlags.add(false);
-                continue;
-            }
-            boolean duplicate = baseline.stream().anyMatch(existing -> areLikelyDuplicates(candidate, existing))
-                    || acceptedFromBatch.stream().anyMatch(existing -> areLikelyDuplicates(candidate, existing));
+        List<JsonNode> batch = new ArrayList<>();
+        for (JsonNode candidate : newCases) {
+            boolean duplicate = indexedCases.stream().anyMatch(existing -> areLikelyDuplicates(candidate, existing))
+                    || batch.stream().anyMatch(existing -> areLikelyDuplicates(candidate, existing));
             duplicateFlags.add(duplicate);
-            if (!duplicate) {
-                acceptedFromBatch.add(candidate);
-                ObjectNode stored = candidate.deepCopy();
-                stored.put(SOURCE_DOCUMENT_ID, sourceDocumentId);
-                entriesToRegister.add(stored);
-            }
+            batch.add(candidate.deepCopy());
         }
-
-        List<JsonNode> updated = new ArrayList<>(baseline);
-        updated.addAll(entriesToRegister);
-        persistCases(updated); // Persist before changing in-memory state.
-        indexedCases.clear();
-        indexedCases.addAll(updated);
+        List<JsonNode> updatedCases = new ArrayList<>(indexedCases);
+        updatedCases.addAll(batch);
+        persistCases(updatedCases);
+        indexedCases.addAll(batch);
         return duplicateFlags;
     }
 
-    /** Backward-compatible convenience method; callers should use eligibility-aware overload. */
-    public synchronized List<Boolean> compareAndRegister(List<JsonNode> newCases) {
-        return compareAndRegister(newCases, java.util.Collections.nCopies(newCases.size(), true), "legacy-batch");
+    /** Eligibility-aware registration used by extraction; incomplete cases remain in output but are not indexed. */
+    public synchronized List<Boolean> compareAndRegister(List<JsonNode> newCases, List<Boolean> eligible, String sourceDocumentId) {
+        if (newCases.size() != eligible.size()) throw new IllegalArgumentException("Case and eligibility lists must have the same size.");
+        indexedCases.removeIf(item -> sourceDocumentId.equals(item.path("_sourceDocumentId").asText("")));
+        List<Boolean> flags = new ArrayList<>(); List<JsonNode> additions = new ArrayList<>();
+        for (int i=0;i<newCases.size();i++) {
+            JsonNode candidate=newCases.get(i); boolean canIndex=Boolean.TRUE.equals(eligible.get(i));
+            boolean duplicate=canIndex && (indexedCases.stream().anyMatch(existing -> areLikelyDuplicates(candidate,existing)) || additions.stream().anyMatch(existing -> areLikelyDuplicates(candidate,existing)));
+            flags.add(duplicate);
+            if(canIndex && !duplicate) { com.fasterxml.jackson.databind.node.ObjectNode stored=candidate.deepCopy() instanceof com.fasterxml.jackson.databind.node.ObjectNode o ? o : mapper.createObjectNode(); if(stored.isEmpty()) stored.set("case",candidate.deepCopy()); stored.put("_sourceDocumentId",sourceDocumentId); additions.add(stored); }
+        }
+        List<JsonNode> updated=new ArrayList<>(indexedCases); updated.addAll(additions); persistCases(updated); indexedCases.clear(); indexedCases.addAll(updated); return flags;
+    }
+
+    /** Returns likely matches from the persistent index without changing it. */
+    public synchronized List<JsonNode> findMatches(List<JsonNode> candidates, String sourceDocumentId) {
+        List<JsonNode> matches=new ArrayList<>();
+        for(int i=0;i<candidates.size();i++) for(JsonNode indexed:indexedCases) {
+            if(sourceDocumentId.equals(indexed.path("_sourceDocumentId").asText(""))) continue;
+            JsonNode stored=indexed.has("case") ? indexed.path("case") : indexed;
+            if(areLikelyDuplicates(candidates.get(i),stored)) { com.fasterxml.jackson.databind.node.ObjectNode result=mapper.createObjectNode(); result.put("caseIndex",i); result.put("sourceDocumentId",indexed.path("_sourceDocumentId").asText("Unknown document")); result.set("fields",stored.path("fields").deepCopy()); matches.add(result); }
+        }
+        return matches;
     }
 
     private void loadCases() {
@@ -124,7 +107,8 @@ public class CaseDuplicateDetector {
             cases.forEach(root::add);
             mapper.writerWithDefaultPrettyPrinter().writeValue(temporaryPath.toFile(), root);
             try {
-                Files.move(temporaryPath, indexPath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
+                Files.move(temporaryPath, indexPath, StandardCopyOption.REPLACE_EXISTING,
+                        StandardCopyOption.ATOMIC_MOVE);
             } catch (IOException atomicMoveException) {
                 Files.move(temporaryPath, indexPath, StandardCopyOption.REPLACE_EXISTING);
             }
@@ -135,8 +119,7 @@ public class CaseDuplicateDetector {
 
     private String value(JsonNode caseNode, String fieldId) {
         JsonNode value = caseNode.path("fields").path(fieldId).path("value");
-        if (value.isValueNode()) return value.asText();
-        return "";
+        return value.isValueNode() ? value.asText() : "";
     }
 
     private Set<String> eventTerms(JsonNode caseNode) {
@@ -150,6 +133,9 @@ public class CaseDuplicateDetector {
 
     private String normalized(String input) {
         return Normalizer.normalize(input == null ? "" : input, Normalizer.Form.NFKC)
-                .toLowerCase().replaceAll("[^\\p{L}\\p{N}]+", " ").trim().replaceAll("\\s+", " ");
+                .toLowerCase()
+                .replaceAll("[^\\p{L}\\p{N}]+", " ")
+                .trim()
+                .replaceAll("\\s+", " ");
     }
 }

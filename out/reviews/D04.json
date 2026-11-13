@@ -1,0 +1,18 @@
+{
+  "documentId" : "D04",
+  "decisions" : { },
+  "caseDecisions" : {
+    "0" : {
+      "action" : "ACCEPTED",
+      "updatedAt" : "2026-11-13T10:12:23.177113Z"
+    },
+    "1" : {
+      "action" : "ACCEPTED",
+      "updatedAt" : "2026-11-13T10:13:00.569552800Z"
+    }
+  },
+  "documentDecision" : {
+    "action" : "REJECTED",
+    "updatedAt" : "2026-11-13T10:13:23.832198900Z"
+  }
+}

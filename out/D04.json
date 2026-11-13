@@ -1,0 +1,361 @@
+{
+  "document_id" : "D04",
+  "cases" : [ {
+    "fields" : {
+      "patient_initials" : {
+        "status" : "extracted",
+        "value" : "PRD",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Mrs P.R.D., 29 years old",
+          "start" : 405,
+          "end" : 429
+        } ],
+        "note" : null
+      },
+      "patient_age_years" : {
+        "status" : "extracted",
+        "value" : 29,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Mrs P.R.D., 29 years old",
+          "start" : 405,
+          "end" : 429
+        } ],
+        "note" : null
+      },
+      "patient_sex" : {
+        "status" : "extracted",
+        "value" : "female",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Mrs P.R.D., 29 years old",
+          "start" : 405,
+          "end" : 429
+        } ],
+        "note" : null
+      },
+      "suspect_drug_name" : {
+        "status" : "extracted",
+        "value" : "sertraline",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "was taking sertraline 50 mg tablets orally once daily",
+          "start" : 431,
+          "end" : 484
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_value" : {
+        "status" : "extracted",
+        "value" : 50,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "was taking sertraline 50 mg tablets orally once daily",
+          "start" : 431,
+          "end" : 484
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_unit" : {
+        "status" : "extracted",
+        "value" : "mg",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "was taking sertraline 50 mg tablets orally once daily",
+          "start" : 431,
+          "end" : 484
+        } ],
+        "note" : null
+      },
+      "suspect_drug_route" : {
+        "status" : "extracted",
+        "value" : "oral",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "was taking sertraline 50 mg tablets orally once daily",
+          "start" : 431,
+          "end" : 484
+        } ],
+        "note" : null
+      },
+      "suspect_drug_start_date" : {
+        "status" : "extracted",
+        "value" : "2025-10-14",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "started by her psychiatrist on 14 October 2025",
+          "start" : 529,
+          "end" : 575
+        } ],
+        "note" : null
+      },
+      "event_onset_date" : {
+        "status" : "extracted",
+        "value" : "2026-05-22",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "At 36 weeks of gestation, on 22 May 2026, she presented",
+          "start" : 746,
+          "end" : 801
+        } ],
+        "note" : null
+      },
+      "event_terms" : {
+        "status" : "extracted",
+        "value" : [ "hyponatraemia", "headache", "confusion", "vomiting" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "she presented with headache, confusion and one episode of vomiting",
+          "start" : 788,
+          "end" : 854
+        } ],
+        "note" : null
+      },
+      "event_outcome" : {
+        "status" : "extracted",
+        "value" : "recovered",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "She has recovered",
+          "start" : 1069,
+          "end" : 1086
+        } ],
+        "note" : null
+      },
+      "seriousness_criteria" : {
+        "status" : "extracted",
+        "value" : [ "hospitalization" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Both patients remain in hospital at the time of this report",
+          "start" : 1665,
+          "end" : 1724
+        } ],
+        "note" : null
+      },
+      "reporter_type" : {
+        "status" : "extracted",
+        "value" : "physician",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Dr Meera Kulkarni, MD (Obstetrics)",
+          "start" : 1746,
+          "end" : 1780
+        } ],
+        "note" : null
+      },
+      "report_date" : {
+        "status" : "extracted",
+        "value" : "2026-06-08",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Date: 8 June 2026",
+          "start" : 92,
+          "end" : 109
+        } ],
+        "note" : null
+      },
+      "country" : {
+        "status" : "extracted",
+        "value" : "IN",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Pune, Maharashtra, India",
+          "start" : 66,
+          "end" : 90
+        } ],
+        "note" : null
+      },
+      "concomitant_drugs" : {
+        "status" : "extracted",
+        "value" : [ "iron", "folic acid" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "She did not take any other medicine apart from routine iron and folic acid supplements",
+          "start" : 657,
+          "end" : 743
+        } ],
+        "note" : null
+      }
+    },
+    "caseValidation" : {
+      "validCase" : true,
+      "errors" : [ ]
+    },
+    "possibleDuplicate" : false
+  }, {
+    "fields" : {
+      "patient_initials" : {
+        "status" : "extracted",
+        "value" : "RD",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Baby R.D.",
+          "start" : 1134,
+          "end" : 1143
+        } ],
+        "note" : null
+      },
+      "patient_age_years" : {
+        "status" : "extracted",
+        "value" : 0,
+        "confidence" : "medium",
+        "evidence" : [ {
+          "quote" : "The baby, a boy (initials recorded as Baby R.D.), was delivered at 38 weeks on 3 June 2026",
+          "start" : 1096,
+          "end" : 1186
+        } ],
+        "note" : "Age inferred as 0 years (newborn)"
+      },
+      "patient_sex" : {
+        "status" : "extracted",
+        "value" : "male",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The baby, a boy",
+          "start" : 1096,
+          "end" : 1111
+        } ],
+        "note" : null
+      },
+      "suspect_drug_name" : {
+        "status" : "extracted",
+        "value" : "sertraline",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "neonatal adaptation syndrome attributed to in-utero exposure to sertraline",
+          "start" : 1416,
+          "end" : 1490
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_value" : {
+        "status" : "unknown",
+        "value" : null,
+        "confidence" : "high",
+        "evidence" : [ ],
+        "note" : null
+      },
+      "suspect_drug_dose_unit" : {
+        "status" : "unknown",
+        "value" : null,
+        "confidence" : "high",
+        "evidence" : [ ],
+        "note" : null
+      },
+      "suspect_drug_route" : {
+        "status" : "unknown",
+        "value" : null,
+        "confidence" : "high",
+        "evidence" : [ ],
+        "note" : null
+      },
+      "suspect_drug_start_date" : {
+        "status" : "unknown",
+        "value" : null,
+        "confidence" : "high",
+        "evidence" : [ ],
+        "note" : null
+      },
+      "event_onset_date" : {
+        "status" : "extracted",
+        "value" : "2026-06-04",
+        "confidence" : "medium",
+        "evidence" : [ {
+          "quote" : "Within the first 24 hours of life he developed jitteriness, a high-pitched cry, poor feeding and mild respiratory distress",
+          "start" : 1218,
+          "end" : 1340
+        } ],
+        "note" : "Onset inferred as the day after delivery (3 June 2026)"
+      },
+      "event_terms" : {
+        "status" : "extracted",
+        "value" : [ "jitteriness", "high-pitched cry", "poor feeding", "respiratory distress" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "he developed jitteriness, a high-pitched cry, poor feeding and mild respiratory distress",
+          "start" : 1252,
+          "end" : 1340
+        } ],
+        "note" : null
+      },
+      "event_outcome" : {
+        "status" : "extracted",
+        "value" : "not_recovered",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The symptoms are settling; at the time of writing he is feeding better but remains under observation",
+          "start" : 1541,
+          "end" : 1641
+        } ],
+        "note" : null
+      },
+      "seriousness_criteria" : {
+        "status" : "extracted",
+        "value" : [ "hospitalization" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Both patients remain in hospital at the time of this report",
+          "start" : 1665,
+          "end" : 1724
+        }, {
+          "quote" : "Both patients remain in hospital at the time of this report.",
+          "start" : 1665,
+          "end" : 1725
+        } ],
+        "note" : null
+      },
+      "reporter_type" : {
+        "status" : "extracted",
+        "value" : "physician",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Dr Meera Kulkarni, MD (Obstetrics)",
+          "start" : 1746,
+          "end" : 1780
+        } ],
+        "note" : null
+      },
+      "report_date" : {
+        "status" : "extracted",
+        "value" : "2026-06-08",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Date: 8 June 2026",
+          "start" : 92,
+          "end" : 109
+        } ],
+        "note" : null
+      },
+      "country" : {
+        "status" : "extracted",
+        "value" : "IN",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Pune, Maharashtra, India",
+          "start" : 66,
+          "end" : 90
+        } ],
+        "note" : null
+      },
+      "concomitant_drugs" : {
+        "status" : "extracted",
+        "value" : [ ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "The infant did not receive any medicine himself",
+          "start" : 1492,
+          "end" : 1539
+        } ],
+        "note" : null
+      }
+    },
+    "caseValidation" : {
+      "validCase" : true,
+      "errors" : [ ]
+    },
+    "possibleDuplicate" : false
+  } ],
+  "flags" : [ ]
+}

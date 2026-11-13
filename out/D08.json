@@ -1,0 +1,301 @@
+{
+  "document_id" : "D08",
+  "cases" : [ {
+    "fields" : {
+      "concomitant_drugs" : {
+        "status" : "extracted",
+        "value" : [ "folic acid", "omeprazole", "cilazapril", "paracetamol", "zoledronic acid", "pantoprazole", "meropenem" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Folic acid          5 mg once weekly (Thursdays)    Oral    Oct 2025     Methotrexate supplementation\n  Omeprazole          20 mg once daily                Oral    2017         Reflux disease\n  Cilazapril          2.5 mg once daily               Oral    2008         Hypertension",
+          "start" : 3103,
+          "end" : 3382
+        }, {
+          "quote" : "Cilazapril          2.5 mg once daily               Oral    2008         Hypertension\n  Paracetamol         1 g up to four times daily PRN  Oral    2019         Arthritis pain\n  Zoledronic acid     5 mg once yearly                IV      2023         Osteoporosis (last Aug 2025)",
+          "start" : 3297,
+          "end" : 3576
+        }, {
+          "quote" : "Omeprazole was changed to intravenous pantoprazole. Cilazapril was withheld because of hypotension and acute kidney injury. Paracetamol was continued",
+          "start" : 8602,
+          "end" : 8751
+        }, {
+          "quote" : "Antibiotics were broadened to meropenem.",
+          "start" : 9485,
+          "end" : 9525
+        } ],
+        "note" : null
+      },
+      "country" : {
+        "status" : "extracted",
+        "value" : "NZ",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Wellington, New Zealand",
+          "start" : 82,
+          "end" : 105
+        }, {
+          "quote" : "Te Awa Regional Hospital, Wellington, New Zealand",
+          "start" : 12498,
+          "end" : 12547
+        }, {
+          "quote" : "New Zealand",
+          "start" : 94,
+          "end" : 105
+        } ],
+        "note" : null
+      },
+      "event_onset_date" : {
+        "status" : "extracted",
+        "value" : "2026-03-19",
+        "confidence" : "medium",
+        "evidence" : [ {
+          "quote" : "On 24 March 2026 the patient presented to the emergency department with a five-day history of painful mouth ulcers, difficulty swallowing, fatigue and easy bruising on the forearms.",
+          "start" : 3908,
+          "end" : 4089
+        }, {
+          "quote" : "Day 5 (28 March 2026): Neutrophil count 0.3 x 10^9/L. The patient developed increasing shortness of breath. Oxygen saturation fell to 88 percent on room air;",
+          "start" : 9127,
+          "end" : 9284
+        }, {
+          "quote" : "onset of mucositis on or about 19 March 2026",
+          "start" : 10947,
+          "end" : 10991
+        } ],
+        "note" : "Multiple values were reported across document sections; the latest source occurrence is shown."
+      },
+      "event_outcome" : {
+        "status" : "extracted",
+        "value" : "fatal",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Fatal.",
+          "start" : 10174,
+          "end" : 10180
+        }, {
+          "quote" : "Death related to the adverse reaction: yes",
+          "start" : 11708,
+          "end" : 11750
+        } ],
+        "note" : null
+      },
+      "event_terms" : {
+        "status" : "extracted",
+        "value" : [ "bone marrow suppression", "oral mucositis", "pancytopenia", "easy bruising", "difficulty swallowing", "fatigue", "severe oral mucositis", "neutropenic sepsis", "pneumonia", "septic shock", "neutropenia", "mucositis" ],
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "developed severe bone marrow suppression",
+          "start" : 400,
+          "end" : 440
+        }, {
+          "quote" : "On 24 March 2026 the patient presented to the emergency department with a five-day history of painful mouth ulcers, difficulty swallowing, fatigue and easy bruising on the forearms. Her daughter reported that the patient had become increasingly lethargic over the preceding week. She had taken her weekly methotrexate dose on 17 March 2026 as scheduled.\n\nOn examination: temperature 38.9 degrees Celsius, heart rate 112 beats per minute, blood pressure 98/56 mmHg, respiratory rate 22 breaths per minute, oxygen saturation 95 percent on room air. Extensive oral mucositis with confluent ulceration of the buccal mucosa, tongue and soft palate. Scattered ecchymoses on both forearms and petechiae on the lower legs. No focal source of infection identified on examination. Chest clear.\n\n6.2 Initial investigations\n\nFull blood count on arrival: haemoglobin 82 g/L, white cell count 0.6 x 10^9/L, absolute neutrophil count 0.1 x 10^9/L, platelet count 14 x 10^9/L. Blood film: pancytopenia, no blasts, no dysplastic features.",
+          "start" : 3908,
+          "end" : 4929
+        }, {
+          "quote" : "Methotrexate toxicity with pancytopenia, severe oral mucositis and neutropenic sepsis",
+          "start" : 5603,
+          "end" : 5688
+        }, {
+          "quote" : "Empirical intravenous piperacillin-tazobactam was started within one hour of arrival after blood cultures were drawn, in line with the hospital's neutropenic sepsis pathway.",
+          "start" : 7831,
+          "end" : 8004
+        }, {
+          "quote" : "1a. Bilateral pneumonia with septic shock",
+          "start" : 10241,
+          "end" : 10282
+        }, {
+          "quote" : "1b. Neutropenia due to methotrexate toxicity",
+          "start" : 10285,
+          "end" : 10329
+        }, {
+          "quote" : "pattern of pancytopenia with mucositis",
+          "start" : 11029,
+          "end" : 11067
+        } ],
+        "note" : null
+      },
+      "patient_age_years" : {
+        "status" : "extracted",
+        "value" : 72,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Date of birth: 1953 (age 72 years at the time of the events described below)",
+          "start" : 746,
+          "end" : 822
+        } ],
+        "note" : null
+      },
+      "patient_initials" : {
+        "status" : "extracted",
+        "value" : "HMN",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Initials: H.M.N.",
+          "start" : 717,
+          "end" : 733
+        } ],
+        "note" : null
+      },
+      "patient_sex" : {
+        "status" : "extracted",
+        "value" : "female",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Sex: Female",
+          "start" : 734,
+          "end" : 745
+        }, {
+          "quote" : "She had taken her weekly methotrexate dose on 17 March 2026 as scheduled.",
+          "start" : 4188,
+          "end" : 4261
+        } ],
+        "note" : null
+      },
+      "report_date" : {
+        "status" : "extracted",
+        "value" : "2026-04-14",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Date of this report: 14 April 2026",
+          "start" : 12549,
+          "end" : 12583
+        } ],
+        "note" : null
+      },
+      "reporter_type" : {
+        "status" : "extracted",
+        "value" : "physician",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Dr Priya Natarajan, Consultant Rheumatologist (reporting clinician)",
+          "start" : 12385,
+          "end" : 12452
+        }, {
+          "quote" : "Dr Callum Whitford, Consultant Haematologist",
+          "start" : 12453,
+          "end" : 12497
+        } ],
+        "note" : null
+      },
+      "seriousness_criteria" : {
+        "status" : "extracted",
+        "value" : [ "life_threatening", "hospitalization", "death" ],
+        "confidence" : "medium",
+        "evidence" : [ {
+          "quote" : "Full blood count on arrival: haemoglobin 82 g/L, white cell count 0.6 x 10^9/L, absolute neutrophil count 0.1 x 10^9/L, platelet count 14 x 10^9/L. Blood film: pancytopenia, no blasts, no dysplastic features.",
+          "start" : 4721,
+          "end" : 4929
+        }, {
+          "quote" : "The patient developed increasing shortness of breath. Oxygen saturation fell to 88 percent on room air; she was started on high-flow nasal oxygen.",
+          "start" : 9181,
+          "end" : 9327
+        }, {
+          "quote" : "The intensive care team reviewed the patient; after discussion with the patient and her family, and in keeping with her previously documented wishes, a decision was made not to escalate to invasive ventilation.",
+          "start" : 9526,
+          "end" : 9736
+        }, {
+          "quote" : "Death                          Yes\n  Life-threatening               Yes\n  Hospitalisation                Yes (admitted 24 March 2026, died in hospital 30 March 2026)",
+          "start" : 10535,
+          "end" : 10700
+        }, {
+          "quote" : "Death related to the adverse reaction: yes",
+          "start" : 11708,
+          "end" : 11750
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_unit" : {
+        "status" : "extracted",
+        "value" : "mg",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Methotrexate was started by the rheumatology service on 7 October 2025 at a dose of 15 mg orally once weekly",
+          "start" : 1869,
+          "end" : 1977
+        }, {
+          "quote" : "dose increase from 15 mg to 20 mg once weekly",
+          "start" : 11429,
+          "end" : 11474
+        } ],
+        "note" : null
+      },
+      "suspect_drug_dose_value" : {
+        "status" : "extracted",
+        "value" : 20,
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "dose increase from 15 mg to 20 mg once weekly",
+          "start" : 11429,
+          "end" : 11474
+        } ],
+        "note" : null
+      },
+      "suspect_drug_name" : {
+        "status" : "extracted",
+        "value" : "methotrexate",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "treatment with low-dose weekly methotrexate",
+          "start" : 448,
+          "end" : 491
+        }, {
+          "quote" : "Methotrexate 2.5 mg tablets (oral).",
+          "start" : 1832,
+          "end" : 1867
+        }, {
+          "quote" : "She had taken her weekly methotrexate dose on 17 March 2026 as scheduled.",
+          "start" : 4188,
+          "end" : 4261
+        }, {
+          "quote" : "Serum methotrexate concentration (drawn approximately 7 days after the last dose): 0.09 micromol/L",
+          "start" : 5269,
+          "end" : 5367
+        }, {
+          "quote" : "Methotrexate was discontinued permanently on 24 March 2026.",
+          "start" : 7623,
+          "end" : 7682
+        }, {
+          "quote" : "Neutropenia due to methotrexate toxicity",
+          "start" : 10289,
+          "end" : 10329
+        }, {
+          "quote" : "support a causal role for methotrexate",
+          "start" : 11278,
+          "end" : 11316
+        } ],
+        "note" : null
+      },
+      "suspect_drug_route" : {
+        "status" : "extracted",
+        "value" : "oral",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Methotrexate 2.5 mg tablets (oral).",
+          "start" : 1832,
+          "end" : 1867
+        }, {
+          "quote" : "low oral dose",
+          "start" : 5456,
+          "end" : 5469
+        } ],
+        "note" : null
+      },
+      "suspect_drug_start_date" : {
+        "status" : "extracted",
+        "value" : "2025-10-07",
+        "confidence" : "high",
+        "evidence" : [ {
+          "quote" : "Methotrexate was started by the rheumatology service on 7 October 2025",
+          "start" : 1869,
+          "end" : 1939
+        } ],
+        "note" : null
+      }
+    },
+    "caseValidation" : {
+      "validCase" : true,
+      "errors" : [ ]
+    },
+    "possibleDuplicate" : false
+  } ],
+  "flags" : [ ]
+}

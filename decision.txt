@@ -1,0 +1,35 @@
+THERAGENX – Main decisions
+
+This file explains the main choices: what we chose and why.
+
+1. Java backend and React screen
+We kept the work split into two parts. The Java Spring Boot backend reads documents, calls the language model and prepares the result. The React frontend lets a person review the result.
+
+2. One field catalog
+The field list is kept in catalog/field_catalog.json. It describes each field, its section, type, allowed values and extraction guidance. The application reads this catalog so the field definitions are kept in one place.
+
+3. Keep the original report visible
+The extracted result is shown beside the original report. Evidence helps the reviewer check where a value came from. The reviewer should be able to move from an evidence item to the related source text.
+
+4. Split long reports into chunks
+Long reports are split into smaller, overlapping parts before they are sent to the language model. A chunk is only a processing part; it is not automatically a separate patient case. The Java processing joins information that belongs to the same patient and keeps different patients separate.
+
+5. Review after extraction
+The application prepares cases first. A reviewer can inspect, edit, accept or reject them. A document may contain more than one patient case, so individual case actions are important.
+
+6. Check duplicate uploads
+The application checks the original file hash for exact copies and normalized extracted text for the same report saved in another format. If a duplicate is found, the user can cancel or choose to save anyway.
+
+7. Keep earlier results during re-extraction
+A new extraction should not destroy the previous result before the new one is ready. This allows a retry without losing the earlier output.
+
+8. Save model responses for repeatable tests
+A live extraction calls Groq. The application can save the response for every chunk as a fixture. During replay, the fixture provider returns the saved response instead of calling Groq. The rest of the Java processing still runs, including case assembly, validation, evidence handling and output creation.
+
+Each re-extraction is stored as a separate run. Replay checks that the document, chunk count and prompts match the saved run. It stops if they do not match.
+
+9. Keep model extraction separate from Java checks
+The model reads the report and suggests structured information. Java code combines chunk results, checks the output, resolves evidence and prepares the result for review. This makes the application steps easier to test without calling the model.
+
+10. The reviewer makes the final review decision
+The extracted result is a draft for review, not a final medical or safety decision. The reviewer checks the source, corrects information where needed and makes the accept/reject decision.
