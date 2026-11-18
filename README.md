@@ -2,7 +2,7 @@
 
 THERAGENX reads medicine safety reports and prepares a structured case for a reviewer. The reviewer can check the extracted information against the original report, correct it, and accept or reject each case.
 
-This README is a short guide to running and using the project. The `demo` folder contains files for trying the main features.
+This README is a short guide to running and using the project.
 
 ## What the application does
 
